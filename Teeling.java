@@ -25,7 +25,9 @@ public class Teeling {
     //INSERT ANY ADDITIONAL GLOBAL VARIABLES HERE
     //===========================================
     //===========================================
+    ______________________________________________________________________________________________________________________________________
     public static int desiredDepth, origDesiredDepth;
+    ______________________________________________________________________________________________________________________________________
     //===========================================
     //===========================================
     //***************************************************************************************************
@@ -41,10 +43,12 @@ public class Teeling {
         //INSERT ANY ADDITIONAL CONTROL VARIABLES HERE
         //============================================
         //============================================
+        //____________________________________________________________________________________________________________________________________
         ArrayList<Object[]> nextValidMoves;//arraylist of moves. one list is a move. it holds 2 index arrays which hold the rows and columns to be changed to my color
         int mode;
         TreeBoard rootBoard;
         long moveProcessStartTime, moveProcessEndTime;
+               //____________________________________________________________________________________________________________________________________
         //============================================
         //============================================
         KeyboardInputClass keyboardInput = new KeyboardInputClass();
@@ -80,11 +84,13 @@ public class Teeling {
 
         //INSERT CODE HERE FOR ANY ADDITIONAL SET-UP OPTIONS
         //==================================================
+        //____________________________________________________________________________________________________________________________________
         mode = keyboardInput.getInteger(true, 3, 1, 3, "Choose mode of play (Enter 1-3)\n1. Random\n2. Manual\n3. Intelligent (Default)");
         if (mode == 3) {
             desiredDepth = keyboardInput.getInteger(true, 8, 1, 100, "Enter depth limit for intelligent search. (1-100. Default = 8 (best))");
             origDesiredDepth = desiredDepth;
         }//end of if
+        //____________________________________________________________________________________________________________________________________
         //==================================================
         spaces = new String[currentBoard.boardRows][currentBoard.boardCols];
         char rowLetter = 'A', colLetter;
@@ -156,6 +162,7 @@ public class Teeling {
                 //CALL METHOD(S) HERE TO SELECT AND MAKE A VALID MOVE
                 //===================================================
                 //===================================================
+                //____________________________________________________________________________________________________________________________________
                 rootBoard = new TreeBoard(currentBoard.board);
                 rootBoard.score = -999999999;//rootBoard is max, set score to -999999999 initially because it will take the best
                 nextValidMoves = getNextValidMoves(rootBoard, true);
@@ -221,6 +228,7 @@ public class Teeling {
                     currentBoard.whoseTurn = opponentColor;
                     desiredDepth = origDesiredDepth;//resetting depth
                 }//end of else
+                //____________________________________________________________________________________________________________________________________
                 //===================================================
                 //===================================================
                 //YOU MAY ADD NEW CLASSES AND/OR METHODS BUT DO NOT
@@ -283,6 +291,7 @@ public class Teeling {
         keyboardInput.getKeyboardInput("\nPress ENTER to exit...");
     }
     //***************************************************************************************************
+    //____________________________________________________________________________________________________________________________________
     //Method:      getnextValidMoves
     //Description: Returns an arraylist of object arrays representing moves. The object arrays contain 2 things:
     //             1) A 2 index array holding the row and column of where the new piece is being placed
@@ -569,13 +578,6 @@ public class Teeling {
 //Description:  Board objects with with to operate with
 
 class TreeBoard {
-
-    //char whoseTurn;     //'?'=no one's turn yet--game has not begun; 'B'=black; 'W'=white
-    //String move;        //the move selected by the current player (as indicated by whoseTurn)
-    //char colorSelected; //'B' or 'W' indicating the color chosen by the first player to access the file
-    //for a new game ('?' if neither player has yet chosen a color)
-    //Note: this may or may not be the color for the player accessing the file
-    //int maxMoveTime;    //maximum time allotted for a move (in seconds)
     int rows;      //size of the board (allows for variations on the standard 8x8 board)
     int cols;
     char boardState[][];     //the board. Positions are filled with: blank = no piece; 'B'=black; 'W'=white
@@ -601,6 +603,7 @@ class TreeBoard {
     }//end of method
     //***************************************************************************************************
 }//end of class
+//____________________________________________________________________________________________________________________________________
 //*******************************************************************************************************
 //*******************************************************************************************************
 
